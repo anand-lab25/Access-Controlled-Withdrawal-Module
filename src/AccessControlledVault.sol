@@ -43,4 +43,9 @@ contract AccessControlledVault {
         guardian = newGuardian;
         emit GuardianChanged(newGuardian);
     }
+
+    function pauseWithdrawal() external onlyOwner {
+        paused = true;
+        emit Paused();
+    }
 }
