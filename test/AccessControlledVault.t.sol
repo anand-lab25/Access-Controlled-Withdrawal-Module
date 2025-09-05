@@ -14,4 +14,17 @@ contract AccessControlledVaultTest is Test {
         vm.prank(owner);
         vault = new AccessControlledVault(guardian);
     }
+
+    function testWithdraw_UnauthorizedReverts() public {
+        vm.deal(address(vault), 1 ether);
+        vm.prank(attacker);
+        vm.expectRevert(AccessControlledVault.Unauthorized.selector);
+        vault.withdraw(0.2 ether);
+    }
+
+    function testSetGuardian_UnauthorizedReverts() public {
+        vm.prank(attacker);
+        vm.expectRevert(AccessControlledVault.Unauthorized.selector);
+        vault.setGuardian(address(0xACDE));
+    }
 }
