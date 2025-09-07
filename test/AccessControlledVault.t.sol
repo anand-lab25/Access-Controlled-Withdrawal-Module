@@ -36,4 +36,19 @@ contract AccessControlledVaultTest is Test {
         vm.prank(guardian);
         vault.withdraw(1 ether);
     }
+
+    function testWithdraw_InsufficientBalanceReverts() public {
+        vm.deal(address(vault), 0 ether);
+        vm.prank(guardian);
+        vm.expectRevert(AccessControlledVault.InsufficientBalance.selector);
+        vm.withdraw(1 ether);
+    }
+
+    function testWithdraw_SuccessEmitsEvents() public {
+        vm.deal(address(vault), 2 ether);
+        vm.prank(guardian);
+        vm.expectEmit(true, false, false, true);
+        emit Withdraw(guardian, 1 ether);
+        vault.withdraw(1 ether);
+    }
 }
