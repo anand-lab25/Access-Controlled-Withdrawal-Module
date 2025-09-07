@@ -13,6 +13,7 @@ contract AccessControlledVault {
     error Unauthorized();
     error WithdrawPaused();
     error InsufficientBalance();
+    error TransferFailed();
     modifier onlyOwner() {
         if (msg.sender != owner) revert Unauthorized();
         _;
@@ -35,7 +36,7 @@ contract AccessControlledVault {
         if (paused) revert WithdrawPaused();
         if (address(this).balance < amount) revert InsufficientBalance();
         (bool success, ) = msg.sender.call{value: amount}("");
-        require(success, "transfer failed");
+        if (!success) revert TransferFailed();
         emit Withdraw(msg.sender, amount);
     }
 
@@ -47,5 +48,10 @@ contract AccessControlledVault {
     function pauseWithdrawal() external onlyOwner {
         paused = true;
         emit Paused();
+    }
+
+    function unpauseWithdrawal() external onlyOwner {
+        paused = false;
+        emit Unpaused();
     }
 }
