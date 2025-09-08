@@ -14,6 +14,7 @@ contract AccessControlledVault {
     error WithdrawPaused();
     error InsufficientBalance();
     error TransferFailed();
+    error ZeroValueError();
     modifier onlyOwner() {
         if (msg.sender != owner) revert Unauthorized();
         _;
@@ -29,6 +30,7 @@ contract AccessControlledVault {
     }
 
     receive() external payable {
+        require(msg.value > 0, ZeroValueError());
         emit Deposit(msg.sender, msg.value);
     }
 
