@@ -12,6 +12,8 @@ contract AccessControlledVaultTest is Test {
     event Withdraw(address indexed recepient, uint256 amount);
     event GuardianChanged(address indexed newGuardian);
     event Deposit(address indexed sender, uint256 amount);
+    event Paused();
+    event Unpaused();
 
     function setUp() public {
         vm.prank(owner);
@@ -69,5 +71,30 @@ contract AccessControlledVaultTest is Test {
         emit Deposit(address(this), 1 ether);
         (bool sent, ) = address(vault).call{value: 1 ether}("");
         assertTrue(sent);
+    }
+
+    function testPauseWithdrawalEmitsEventAndSetsState() public {
+        vm.prank(owner);
+        vm.expectEmit(false, false, false, true, address(vault));
+        emit Paused();
+        vault.pauseWithdrawal();
+        assertTrue(vault.paused());
+    }
+
+    function testUnpauseWithdrawal() public {
+        vm.prank(owner);
+        vm.expectEmit(false, false, false, true, address(vault));
+        emit Unpaused();
+        vault.unpauseWithdrawal();
+        assertFalse(vault.paused());
+        vm.deal(address(vault), 2 ether);
+        vm.prank(guardian);
+        vault.withdraw(1 ether);
+    }
+
+    function testRevertZeroValueDoesNotEmits() public {
+        vm.deal(address(vault), 2 ether);
+        (bool sent, ) = address(vault).call{value: 0 ether}("");
+        assertFalse(sent);
     }
 }
