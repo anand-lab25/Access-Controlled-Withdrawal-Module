@@ -1,8 +1,7 @@
 🔐 access-controlled-withdrawal-module 
 
-_Audit-ready ETH vault with modular role-based access control_
-
-A minimal ETH vault contract with role-based access control for withdrawals, designed to demonstrate defensive programming, modular architecture, and audit-ready event traceability.
+Audit-ready ETH vault module engineered for composability, gas-efficiency, and production-grade access control. 
+Designed to signal professional judgment, modular thinking, and repo hygiene.
 
 ![Audit-Ready](https://img.shields.io/badge/Audit--Ready-Yes-green)
 ![Survivability-Logic](https://img.shields.io/badge/Survivability--Logic-Embedded-blue)
@@ -14,6 +13,15 @@ A minimal ETH vault contract with role-based access control for withdrawals, des
 - This vault module enforces ETH withdrawal permissions via role-based access control.  
 - Designed for composability, audit-readiness, and gas-aware execution under adversarial conditions.  
 - Implements minimal MVP logic with pause toggling, custom errors, and traceable event emissions.
+
+
+## 🎯 Why This Matters
+
+This module demonstrates how I approach smart contract engineering:  
+- **Security-first**: Role separation, pause logic, and custom errors  
+- **Audit-aware**: Event traceability and curated coverage summaries  
+- **Gas-conscious**: Profiling and optimization across core flows  
+- **Repo hygiene**: Structured commits, curated README, and survivability logic
 
 
 ## ⚙️ Design Philosophy
@@ -78,6 +86,21 @@ Deployment cost: 589,879 gas Contract size: 2,629 bytes.
 
 ![Foundry](https://img.shields.io/badge/Tested%20With-Foundry-blue)
 
+## 🧾 Commit Taxonomy
+
+Commits follow a structured format to narrate engineering decisions:
+
+- `docs: embed gas profiling table and deployment cost`
+- `docs: articulate testing philosophy and failure mode narration`
+- `docs: add recruiter signaling section with survivability logic`
+- `docs: refine module overview for composability emphasis`
+- `test: add revert coverage for unauthorized withdrawal`
+- `feat: implement guardian role with setGuardian()`
+- `chore: separate raw gas output from curated summary`
+
+This taxonomy supports audit trails and recruiter review.
+
+
 ## 🧠 TL;DR
 
 - Minimal ETH vault with role-based access control, pause logic, and custom errors.  
@@ -97,3 +120,9 @@ Every module reflects survivability logic, audit-readiness, and professional jud
 📬 Feedback, suggestions, or audit insights welcome via [GitHub Issues](https://github.com/anand-lab25/access-controlled-withdrawal-module/issues).  
 This module is part of a growing portfolio focused on composable, audit-ready smart contract primitives.
 
+## 📬 Let’s Connect
+
+If you're hiring Solidity engineers who treat every repo like a production-grade artifact, I’d love to talk.
+
+- 📧 anand.business1988@gmail.com 
+- 🧑‍💻 [Portfolio](https://github.com/anand-lab25)
