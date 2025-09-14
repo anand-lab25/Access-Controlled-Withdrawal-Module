@@ -125,4 +125,4 @@ This module is part of a growing portfolio focused on composable, audit-ready sm
 If you're hiring Solidity engineers who treat every repo like a production-grade artifact, I’d love to talk.
 
 - 📧 anand.business1988@gmail.com 
-- 🧑‍💻 [Portfolio](https://github.com/anand-lab25)
+- 🧑‍💻 [Portfolio](https://github.com/anand-lab25) .
