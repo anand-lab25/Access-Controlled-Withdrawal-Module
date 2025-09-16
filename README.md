@@ -86,6 +86,16 @@ Deployment cost: 589,879 gas Contract size: 2,629 bytes.
 
 ![Foundry](https://img.shields.io/badge/Tested%20With-Foundry-blue)
 
+
+## 📈 Signals
+
+- 155 views and 66 clones in 14 days.
+- Silent traction from 34 unique cloners—suggests real-world utility and quiet adoption.
+- Audit-ready logic with gas profiling, event verification, and survivability coordination. 
+- README and commit taxonomy narrate ownership, inevitability, and recruiter-binding clarity.
+- As of Sept 16, 2025.
+
+
 ## 🧾 Commit Taxonomy
 
 Commits follow a structured format to narrate engineering decisions:
